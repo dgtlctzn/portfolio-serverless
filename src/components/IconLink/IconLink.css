@@ -1,0 +1,14 @@
+.icon-logo {
+    height: 120px;
+    /* -webkit-filter: invert(100%);
+    filter: invert(100%); */
+    padding: 10px;
+}
+
+.icon-logo:hover {
+    opacity: .5;
+}
+
+.logo-name {
+    padding-left: 20px;
+}

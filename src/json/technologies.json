@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "React",
+        "icon": "./img/react-logo.png"
+    },
+    {
+        "id": 2,
+        "name": "Node.js",
+        "icon": "./img/node-logo.png"
+    },
+    {
+        "id": 3,
+        "name": "Python",
+        "icon": "./img/python-logo.png"
+    },
+    {
+        "id": 4,
+        "name": "Javascript",
+        "icon": "./img/javascript-logo.png"
+    },
+    {
+        "id": 5,
+        "name": "MySql",
+        "icon": "./img/mysql-logo.png"
+    },
+    {
+        "id": 6,
+        "name": "MongoDB",
+        "icon": "./img/mongodb-logo.png"
+    }
+]

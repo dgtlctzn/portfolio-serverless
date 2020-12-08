@@ -1,0 +1,22 @@
+[
+    {
+      "link": "https://github.com/dgtlctzn",
+      "image": "./img/github-logo.png",
+      "alt": "GitHub"
+    },
+    {
+      "link": "./joseph_perry_resume.pdf",
+      "image": "./img/resume-logo.png",
+      "alt": "Resume"
+    },
+    {
+      "link": "mailto:josephperry720@gmail.com",
+      "image": "./img/email-logo.png",
+      "alt": "Email"
+    },
+    {
+      "link": "https://www.linkedin.com/in/joseph-perry-iv/",
+      "image": "./img/linkedin-logo.png",
+      "alt": "LinkedIn"
+    }
+  ]

@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "name": "Ciphr",
+        "link": "https://ciphr.herokuapp.com/",
+        "gh_link": "https://github.com/dgtlctzn/ciphr",
+        "image": "./img/ciphr-project.png",
+        "icon": "./img/react-logo.png",
+        "text": "A platform to share and solve coding algorithms featuring a browser Repl.",
+        "tech": ["React", "Node.js", "MongoDB", "Express"]
+    },
+    {
+        "id": 2,
+        "name": "Bandwich",
+        "link": "https://bandwich-app.herokuapp.com/",
+        "gh_link": "https://github.com/dgtlctzn/bandwich",
+        "image": "./img/bandwich.png",
+        "icon": "./img/node-logo.png",
+        "text": "A simple browser based 4-track recording interface built with collaboration in mind.",
+        "tech": ["Node.js", "jQuery", "Handlebars", "Sequelize"]
+    },
+    {
+        "id": 3,
+        "name": "A.O.W.",
+        "link": "https://go-around-the-world.herokuapp.com/",
+        "gh_link": "https://github.com/dgtlctzn/around-the-world",
+        "image": "./img/around-world.png",
+        "icon": "./img/django-logo.png",
+        "text": "Around the World is a site to track and map the countries you've been to and want to go to.",
+        "tech": ["Django", "Python3", "PostgreSQL"]
+    },
+    {
+        "id": 4,
+        "name": "personaGen",
+        "link": "https://dgtlctzn.github.io/personaGen/",
+        "gh_link": "https://github.com/dgtlctzn/personaGen",
+        "image": "./img/persona.png",
+        "icon": "./img/javascript-logo.png",
+        "text": "A fake persona generating application with realistic ages and bio",
+        "tech": ["JavaScript", "jQuery", "APIs"]
+    },
+    {
+        "id": 5,
+        "name": "Twitter Bot",
+        "link": "https://twitter.com/KarenVsManager",
+        "gh_link": "https://github.com/dgtlctzn/Karen_bot",
+        "image": "./img/KarenBotPic.png",
+        "icon": "./img/python-logo.png",
+        "text": "A Twitter bot based on the Karen memes. Generates text based on one star Yelp reviews. Likes and comments on user's posts",
+        "tech": ["Python3", "Markovify text generation", "Twitter API"]
+    },
+    {
+        "id": 6,
+        "name": "Covid Rate",
+        "link": "",
+        "gh_link": "https://github.com/dgtlctzn/covid_rate",
+        "image": "./img/CovidTrackerPic.png",
+        "icon": "./img/python-logo.png",
+        "text": "Tracking the rate of Covid-19 on a Raspberry Pi.",
+        "tech": ["Python3", "Jupyter Notebooks", "Pandas"]
+    }
+]
