@@ -9,38 +9,36 @@ import technologies from "../../json/technologies.json";
 import contacts from "../../json/contacts.json";
 import { Modal, Button } from "react-materialize";
 import M from "materialize-css";
-
-// const About = lazy(() => import("../../components/About/About"));
-// const Tech = lazy(() => import("../../components/Tech/Tech"));
-// const ProjectCard = lazy(() =>
-//   import("../../components/ProjectCard/ProjectCard")
-// );
+import { Transition } from "react-transition-group";
 
 const Home = () => {
-  // const [about, setAbout] = useState(false);
-  // const aboutComponent = about ? <About /> : <div id="about-blank"></div>;
 
-  // const [tech, setTech] = useState(false);
-  // const techComponent = tech ? (
-  //   <>
-  //     {technologies.map((tech) => (
-  //       <Tech key={tech.id} {...tech} />
-  //     ))}
-  //   </>
-  // ) : (
-  //   <div id="tech-blank"></div>
-  // );
+  const [about, setAbout] = useState(false);
+  const defaultSlideStyle = {
+    transform: "translateX(-100%)",
+    transition: "1s ease-in-out",
+  };
+  const transitionSlideStyles = {
+    entered: { transform: "translateX(0%)" },
+  };
 
-  // const [project, setProject] = useState(false);
-  // const projectComponent = project ? (
-  //   <>
-  //     {projects.map((project) => (
-  //       <ProjectCard key={project.id} {...project} />
-  //     ))}
-  //   </>
-  // ) : (
-  //   <div id="project-blank"></div>
-  // );
+  const [tech, setTech] = useState(false);
+  const defaultGrowStyle = {
+    transform: "scale(0)"
+  }
+  const transitionGrowStyles = {
+    entered: { transform: "scale(1)", transition: "1s ease-in-out" },
+  }
+
+  const [project, setProject] = useState(false);
+  const defaultFadeStyle = {
+    transition: `opacity 2000ms ease-in-out`,
+    opacity: 0,
+  };
+  const transitionFadeStyles = {
+    entering: { opacity: 1 },
+    entered: { opacity: 1 },
+  };
 
   useEffect(() => {
     var elems = document.querySelectorAll(".parallax");
@@ -48,61 +46,61 @@ const Home = () => {
     M.Parallax.init(elems);
   }, []);
 
-  // const lazyAbout = (entries) => {
-  //   entries.forEach((entry) => {
-  //     if (!about) {
-  //       if (entry.isIntersecting) {
-  //         setAbout(true);
-  //       }
-  //     }
-  //   });
-  // };
+  const lazyAbout = (entries) => {
+    entries.forEach((entry) => {
+      if (!about) {
+        if (entry.isIntersecting) {
+          setAbout(true);
+        }
+      }
+    });
+  };
 
-  // const lazyTech = (entries) => {
-  //   entries.forEach((entry) => {
-  //     if (!tech) {
-  //       if (entry.isIntersecting) {
-  //         setTech(true);
-  //       }
-  //     }
-  //   });
-  // };
+  const lazyTech = (entries) => {
+    entries.forEach((entry) => {
+      if (!tech) {
+        if (entry.isIntersecting) {
+          setTech(true);
+        }
+      }
+    });
+  };
 
-  // const lazyProject = (entries) => {
-  //   entries.forEach((entry) => {
-  //     if (!project) {
-  //       if (entry.isIntersecting) {
-  //         setProject(true);
-  //       }
-  //     }
-  //   });
-  // };
+  const lazyProject = (entries) => {
+    entries.forEach((entry) => {
+      if (!project) {
+        if (entry.isIntersecting) {
+          setProject(true);
+        }
+      }
+    });
+  };
 
-  // useEffect(() => {
-  //   let options = {
-  //     rootMargin: "400px",
-  //     threshold: 1.0,
-  //   };
-  //   let optionsTwo = {
-  //     rootMargin: "40px",
-  //     threshold: 1.0,
-  //   };
-  //   let optionsThree = {
-  //     rootMargin: "0px",
-  //     threshold: 1.0,
-  //   };
-  //   const aboutObserver = new IntersectionObserver(lazyAbout, options);
-  //   const techObserver = new IntersectionObserver(lazyTech, optionsTwo);
-  //   const projectObserver = new IntersectionObserver(lazyProject, optionsThree);
+  useEffect(() => {
+    let options = {
+      rootMargin: "400px",
+      threshold: 1.0,
+    };
+    let optionsTwo = {
+      rootMargin: "40px",
+      threshold: 1.0,
+    };
+    let optionsThree = {
+      rootMargin: "0px",
+      threshold: 1.0,
+    };
+    const aboutObserver = new IntersectionObserver(lazyAbout, options);
+    const techObserver = new IntersectionObserver(lazyTech, optionsTwo);
+    const projectObserver = new IntersectionObserver(lazyProject, optionsThree);
 
-  //   let aboutTarget = document.querySelector("#about");
-  //   let techTarget = document.querySelector("#tech");
-  //   let projectTarget = document.querySelector("#projects");
+    let aboutTarget = document.querySelector("#about");
+    let techTarget = document.querySelector("#tech");
+    let projectTarget = document.querySelector("#projects");
 
-  //   aboutObserver.observe(aboutTarget);
-  //   techObserver.observe(techTarget);
-  //   projectObserver.observe(projectTarget);
-  // }, []);
+    aboutObserver.observe(aboutTarget);
+    techObserver.observe(techTarget);
+    projectObserver.observe(projectTarget);
+  }, []);
 
   return (
     <div>
@@ -115,8 +113,18 @@ const Home = () => {
         <div id="about-me" className="col s12 offset-m1">
           <h3>About Me</h3>
           <div id="break"></div>
-          {/* <Suspense fallback={null}>{aboutComponent}</Suspense> */}
-          <About />
+          <Transition in={about} timeout={200}>
+            {(state) => (
+              <div
+                style={{
+                  ...defaultSlideStyle,
+                  ...transitionSlideStyles[state],
+                }}
+              >
+                <About />
+              </div>
+            )}
+          </Transition>
         </div>
       </div>
       <div id="tech" className="row section-light">
@@ -124,26 +132,41 @@ const Home = () => {
           <h3>Technical Skills</h3>
           <div id="break-two"></div>
           <div className="row">
-            {/* <Suspense fallback={null}>{techComponent}</Suspense> */}
-            {technologies.map((tech) => (
-              <Tech key={tech.id} {...tech} />
-            ))}
+            <Transition in={tech} timeout={0}>
+              {(state) => (
+                <div
+                  style={{
+                    ...defaultGrowStyle,
+                    ...transitionGrowStyles[state],
+                  }}
+                >
+                  {technologies.map((tech) => (
+                    <Tech key={tech.id} {...tech} />
+                  ))}
+                </div>
+              )}
+            </Transition>
           </div>
         </div>
       </div>
       <div className="row section-dark">
         <h3 id="projects">Projects</h3>
         <div id="break"></div>
-        {/* <Suspense fallback={null}>{projectComponent}</Suspense> */}
-        {projects.map((project) => (
-          <ProjectCard key={project.id} {...project} />
-        ))}
+        <Transition in={project} timeout={2000}>
+          {(state) => (
+            <div
+              style={{
+                ...defaultFadeStyle,
+                ...transitionFadeStyles[state],
+              }}
+            >
+              {projects.map((project) => (
+                <ProjectCard key={project.id} {...project} />
+              ))}
+            </div>
+          )}
+        </Transition>
       </div>
-      {/* <div className="parallax-container">
-        <div className="parallax">
-          <img src="./img/IMG_3503.jpeg" />
-        </div>
-      </div> */}
       <div id="contact" className="row contact">
         <div className="col offset-m1"></div>
         {/* <div id="contacts" className="col m12"> */}
@@ -188,7 +211,6 @@ const Home = () => {
           </Modal>
         </div>
       </div>
-      {/* </div> */}
     </div>
   );
 };
