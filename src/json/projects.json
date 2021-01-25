@@ -31,13 +31,13 @@
     },
     {
         "id": 4,
-        "name": "personaGen",
-        "link": "https://dgtlctzn.github.io/personaGen/",
-        "gh_link": "https://github.com/dgtlctzn/personaGen",
-        "image": "./img/persona.png",
-        "icon": "./img/javascript-logo.png",
-        "text": "A fake persona generating application with realistic ages and bio",
-        "tech": ["JavaScript", "jQuery", "APIs"]
+        "name": "Top Ten",
+        "link": "https://top-ten.netlify.app/",
+        "gh_link": "https://github.com/dgtlctzn/top-ten",
+        "image": "./img/top-ten-fb.png",
+        "icon": "./img/typescript-logo.png",
+        "text": "A site to search, rank, and share your favorite movies, albums, and books",
+        "tech": ["Typescript", "Redux", "React", "OAuth"]
     },
     {
         "id": 5,
@@ -51,12 +51,12 @@
     },
     {
         "id": 6,
-        "name": "Covid Rate",
-        "link": "",
-        "gh_link": "https://github.com/dgtlctzn/covid_rate",
-        "image": "./img/CovidTrackerPic.png",
-        "icon": "./img/python-logo.png",
-        "text": "Tracking the rate of Covid-19 on a Raspberry Pi.",
-        "tech": ["Python3", "Jupyter Notebooks", "Pandas"]
+        "name": "Title Gen",
+        "link": "http://titlegen.us-east-1.elasticbeanstalk.com/api/v1/titlegen?type=song&no=4",
+        "gh_link": "https://github.com/dgtlctzn/API-title-generation",
+        "image": "./img/title-gen-pic.png",
+        "icon": "./img/java-logo.png",
+        "text": "An API to generate random song, book, or startup titles",
+        "tech": ["Java", "Spring Boot", "AWS", "Natural Language Processing"]
     }
 ]
