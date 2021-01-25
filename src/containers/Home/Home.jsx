@@ -17,30 +17,30 @@ import M from "materialize-css";
 // );
 
 const Home = () => {
-  const [about, setAbout] = useState(false);
-  const aboutComponent = about ? <About /> : <div id="about-blank"></div>;
+  // const [about, setAbout] = useState(false);
+  // const aboutComponent = about ? <About /> : <div id="about-blank"></div>;
 
-  const [tech, setTech] = useState(false);
-  const techComponent = tech ? (
-    <>
-      {technologies.map((tech) => (
-        <Tech key={tech.id} {...tech} />
-      ))}
-    </>
-  ) : (
-    <div id="tech-blank"></div>
-  );
+  // const [tech, setTech] = useState(false);
+  // const techComponent = tech ? (
+  //   <>
+  //     {technologies.map((tech) => (
+  //       <Tech key={tech.id} {...tech} />
+  //     ))}
+  //   </>
+  // ) : (
+  //   <div id="tech-blank"></div>
+  // );
 
-  const [project, setProject] = useState(false);
-  const projectComponent = project ? (
-    <>
-      {projects.map((project) => (
-        <ProjectCard key={project.id} {...project} />
-      ))}
-    </>
-  ) : (
-    <div id="project-blank"></div>
-  );
+  // const [project, setProject] = useState(false);
+  // const projectComponent = project ? (
+  //   <>
+  //     {projects.map((project) => (
+  //       <ProjectCard key={project.id} {...project} />
+  //     ))}
+  //   </>
+  // ) : (
+  //   <div id="project-blank"></div>
+  // );
 
   useEffect(() => {
     var elems = document.querySelectorAll(".parallax");
@@ -48,61 +48,61 @@ const Home = () => {
     M.Parallax.init(elems);
   }, []);
 
-  const lazyAbout = (entries) => {
-    entries.forEach((entry) => {
-      if (!about) {
-        if (entry.isIntersecting) {
-          setAbout(true);
-        }
-      }
-    });
-  };
+  // const lazyAbout = (entries) => {
+  //   entries.forEach((entry) => {
+  //     if (!about) {
+  //       if (entry.isIntersecting) {
+  //         setAbout(true);
+  //       }
+  //     }
+  //   });
+  // };
 
-  const lazyTech = (entries) => {
-    entries.forEach((entry) => {
-      if (!tech) {
-        if (entry.isIntersecting) {
-          setTech(true);
-        }
-      }
-    });
-  };
+  // const lazyTech = (entries) => {
+  //   entries.forEach((entry) => {
+  //     if (!tech) {
+  //       if (entry.isIntersecting) {
+  //         setTech(true);
+  //       }
+  //     }
+  //   });
+  // };
 
-  const lazyProject = (entries) => {
-    entries.forEach((entry) => {
-      if (!project) {
-        if (entry.isIntersecting) {
-          setProject(true);
-        }
-      }
-    });
-  };
+  // const lazyProject = (entries) => {
+  //   entries.forEach((entry) => {
+  //     if (!project) {
+  //       if (entry.isIntersecting) {
+  //         setProject(true);
+  //       }
+  //     }
+  //   });
+  // };
 
-  useEffect(() => {
-    let options = {
-      rootMargin: "400px",
-      threshold: 1.0,
-    };
-    let optionsTwo = {
-      rootMargin: "40px",
-      threshold: 1.0,
-    };
-    let optionsThree = {
-      rootMargin: "0px",
-      threshold: 1.0,
-    };
-    const aboutObserver = new IntersectionObserver(lazyAbout, options);
-    const techObserver = new IntersectionObserver(lazyTech, optionsTwo);
-    const projectObserver = new IntersectionObserver(lazyProject, optionsThree);
+  // useEffect(() => {
+  //   let options = {
+  //     rootMargin: "400px",
+  //     threshold: 1.0,
+  //   };
+  //   let optionsTwo = {
+  //     rootMargin: "40px",
+  //     threshold: 1.0,
+  //   };
+  //   let optionsThree = {
+  //     rootMargin: "0px",
+  //     threshold: 1.0,
+  //   };
+  //   const aboutObserver = new IntersectionObserver(lazyAbout, options);
+  //   const techObserver = new IntersectionObserver(lazyTech, optionsTwo);
+  //   const projectObserver = new IntersectionObserver(lazyProject, optionsThree);
 
-    let aboutTarget = document.querySelector("#about");
-    let techTarget = document.querySelector("#tech");
-    let projectTarget = document.querySelector("#projects");
+  //   let aboutTarget = document.querySelector("#about");
+  //   let techTarget = document.querySelector("#tech");
+  //   let projectTarget = document.querySelector("#projects");
 
-    aboutObserver.observe(aboutTarget);
-    techObserver.observe(techTarget);
-    projectObserver.observe(projectTarget);
-  }, []);
+  //   aboutObserver.observe(aboutTarget);
+  //   techObserver.observe(techTarget);
+  //   projectObserver.observe(projectTarget);
+  // }, []);
 
   return (
     <div>
@@ -115,7 +115,8 @@ const Home = () => {
         <div id="about-me" className="col s12 offset-m1">
           <h3>About Me</h3>
           <div id="break"></div>
-          <Suspense fallback={null}>{aboutComponent}</Suspense>
+          {/* <Suspense fallback={null}>{aboutComponent}</Suspense> */}
+          <About />
         </div>
       </div>
       <div id="tech" className="row section-light">
@@ -123,16 +124,20 @@ const Home = () => {
           <h3>Technical Skills</h3>
           <div id="break-two"></div>
           <div className="row">
-            <Suspense fallback={null}>{techComponent}</Suspense>
+            {/* <Suspense fallback={null}>{techComponent}</Suspense> */}
+            {technologies.map((tech) => (
+              <Tech key={tech.id} {...tech} />
+            ))}
           </div>
         </div>
       </div>
       <div className="row section-dark">
-        <h3 id="projects">
-          Projects
-        </h3>
+        <h3 id="projects">Projects</h3>
         <div id="break"></div>
-        <Suspense fallback={null}>{projectComponent}</Suspense>
+        {/* <Suspense fallback={null}>{projectComponent}</Suspense> */}
+        {projects.map((project) => (
+          <ProjectCard key={project.id} {...project} />
+        ))}
       </div>
       {/* <div className="parallax-container">
         <div className="parallax">
@@ -142,47 +147,47 @@ const Home = () => {
       <div id="contact" className="row contact">
         <div className="col offset-m1"></div>
         {/* <div id="contacts" className="col m12"> */}
-          {contacts.map((contact) => (
-            <IconLink key={contact.alt} {...contact} />
-          ))}
-          <div className="col s12 m2">
-            <h5 className="logo-name">Phone</h5>
-            <Modal
-              actions={[
-                <Button flat modal="close" node="button" waves="green">
-                  Close
-                </Button>,
-              ]}
-              bottomSheet={false}
-              fixedFooter={false}
-              header="Cell Number"
-              id="Modal-0"
-              open={false}
-              options={{
-                dismissible: true,
-                endingTop: "10%",
-                inDuration: 250,
-                onCloseEnd: null,
-                onCloseStart: null,
-                onOpenEnd: null,
-                onOpenStart: null,
-                opacity: 0.5,
-                outDuration: 250,
-                preventScrolling: true,
-                startingTop: "4%",
-              }}
-              trigger={
-                <img
-                  className="icon-logo"
-                  src="./img/phone-logo.png"
-                  alt="phone"
-                />
-              }
-            >
-              <p>(404) 358-3607</p>
-            </Modal>
-          </div>
+        {contacts.map((contact) => (
+          <IconLink key={contact.alt} {...contact} />
+        ))}
+        <div className="col s12 m2">
+          <h5 className="logo-name">Phone</h5>
+          <Modal
+            actions={[
+              <Button flat modal="close" node="button" waves="green">
+                Close
+              </Button>,
+            ]}
+            bottomSheet={false}
+            fixedFooter={false}
+            header="Cell Number"
+            id="Modal-0"
+            open={false}
+            options={{
+              dismissible: true,
+              endingTop: "10%",
+              inDuration: 250,
+              onCloseEnd: null,
+              onCloseStart: null,
+              onOpenEnd: null,
+              onOpenStart: null,
+              opacity: 0.5,
+              outDuration: 250,
+              preventScrolling: true,
+              startingTop: "4%",
+            }}
+            trigger={
+              <img
+                className="icon-logo"
+                src="./img/phone-logo.png"
+                alt="phone"
+              />
+            }
+          >
+            <p>(404) 358-3607</p>
+          </Modal>
         </div>
+      </div>
       {/* </div> */}
     </div>
   );

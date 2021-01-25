@@ -2,7 +2,7 @@ import "./Tech.css"
 
 const Tech = ({name, icon}) => {
     return (
-      <div className="col s6 m2 center animate__animated animate__zoomIn">
+      <div className="col s6 m2 center">
         <p>{name}</p>
         <img className="icon-image" src={icon} alt={name}/>
       </div>
