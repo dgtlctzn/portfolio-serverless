@@ -3,7 +3,7 @@ import "./About.css";
 
 const About = () => {
   return (
-    <div id="about-me" className="row animate__animated animate__fadeInLeft">
+    <div id="about-me" className="row">
       <div className="col m3">
         <img id="bike" src="./img/me-on-a-bike.jpg" alt="me on a bike" />
       </div>
