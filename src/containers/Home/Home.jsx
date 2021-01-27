@@ -113,7 +113,7 @@ const Home = () => {
         <div id="about-me" className="col s12 offset-m1">
           <h3>About Me</h3>
           <div id="break"></div>
-          <Transition in={about} timeout={200}>
+          <Transition in={about} timeout={0}>
             {(state) => (
               <div
                 style={{
