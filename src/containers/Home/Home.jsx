@@ -78,7 +78,7 @@ const Home = () => {
 
   useEffect(() => {
     let options = {
-      rootMargin: "400px",
+      rootMargin: "250px",
       threshold: 1.0,
     };
     let optionsTwo = {
