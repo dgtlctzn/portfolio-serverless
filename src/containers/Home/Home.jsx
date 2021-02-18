@@ -110,7 +110,7 @@ const Home = () => {
         </div>
       </div>
       <div id="about" className="row section-dark">
-        <div id="about-me" className="col s12 offset-m1">
+        <div id="about-me" className="col s12 m10 offset-m1">
           <h3>About Me</h3>
           <div id="break"></div>
           <Transition in={about} timeout={0}>
